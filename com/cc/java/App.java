@@ -7,47 +7,38 @@ public class App {
 
     public static void main(String[] args) {
         
-        // Wir erstellen die konkreten Formen
-        Circle circle = new Circle(Math.sqrt(12.17) / Math.sqrt(Math.PI));
+        // 1. Instanziierung (Komplexe Logik ggf. in Variable auslagern für Lesbarkeit)
+        double circleRadius = Math.sqrt(12.17) / Math.sqrt(Math.PI);
+        
+        Circle circle = new Circle(circleRadius);
         Rectangle rectangle = new Rectangle(5.0, 6.0);
         Triangle triangle = new Triangle(3.0, 8.0);
 
-        // Polymorphismus: Wir speichern alle unterschiedlichen Formen in einer Liste vom Typ "Shape".
-        List<Shape> shapes = new ArrayList<>();
-        shapes.add(circle);
-        shapes.add(rectangle);
-        shapes.add(triangle);
+        // 2. Polymorphe Sammlung
+        List<Shape> shapes = List.of(circle, rectangle, triangle);
 
-        System.out.println("--- Flaechenberechnung ---");
-
-        // Wir iterieren über die Liste. Die Schleife weiß nur, dass es "Shapes" sind.
+        output("--- Flaechenberechnung ---");
         for (Shape shape : shapes) {
-                                                                            // Late Binding:Java entscheidet erst zur Laufzeit,
-            output("Flaeche von " + shape.getName() + ": " + shape.area()); // welche area()-Methode aufgerufen wird (die vom Kreis, Rechteck oder Dreieck).
+            // Late Binding: Java wählt die spezifische area()-Methode
+            output("Flaeche von " + shape.getName() + ": " + shape.area());
         }
 
         output("------  Differenzen ------");
-        output("Diff. r-t :" + areaDiff(rectangle, triangle));
-        output("Diff. r-c :" + areaDiff(rectangle, circle));
-        output("Diff. c-r: " + areaDiff(circle,rectangle));
-        output("Diff. c-t: " + areaDiff(circle, triangle));
-        output("Diff. t-t: " + areaDiff(triangle, triangle));
-
+        // Nutzung der polymorphen areaDiff-Methode
+        output("Diff. r-t : " + areaDiff(rectangle, triangle));
+        output("Diff. r-c : " + areaDiff(rectangle, circle));
+        output("Diff. c-r : " + areaDiff(circle, rectangle));
     }
 
-    //    /* 1. Iteration : ggf. 1000x überladen */ 
-    // private static double areaDiff(Rectangle r, Triangle t){
-    //     return r.area() - t.area();
-    // }
-
-       /* 2. Iteration: Polymorphie - besser! */  
-    private static double areaDiff(Shape s1, Shape s2){
+    /**
+     * Berechnet die Differenz zwischen zwei Flächen.
+     * Nutzt Polymorphie, um jeden Subtyp von Shape zu verarbeiten.
+     */
+    private static double areaDiff(Shape s1, Shape s2) {
         return s1.area() - s2.area();
     }
- 
 
-
-    private static void output(String outputStr) {         // Hilfsmethode für die Ausgabe
+    private static void output(String outputStr) {
         System.out.println(outputStr);
     }
 }
