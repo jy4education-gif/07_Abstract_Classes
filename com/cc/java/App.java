@@ -19,14 +19,14 @@ public class App {
         shapes.add(rectangle);
         shapes.add(triangle);
 
-        System.out.println("--- Flächenberechnung ---");
+        System.out.println("--- Flaechenberechnung ---");
 
         // Wir iterieren über die Liste. Die Schleife weiß nur, dass es "Shapes" sind.
         for (Shape shape : shapes) {
             // Der "magische" Moment (Late Binding):
             // Java entscheidet erst zur Laufzeit, WELCHE area()-Methode aufgerufen wird
             // (die vom Kreis, Rechteck oder Dreieck).
-            output("Fläche von " + shape.getName() + ": " + shape.area());
+            output("Flaeche von " + shape.getName() + ": " + shape.area());
         }
     }
 
