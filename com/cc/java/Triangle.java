@@ -12,6 +12,6 @@ public class Triangle extends Shape {
 
     @Override
     public double area() {
-        return (1/2) * base * height;    // Formel: 0.5 * Basis * Höhe
+        return 0.5 * base * height;    // Formel: 0.5 * Basis * Höhe
     }
 }

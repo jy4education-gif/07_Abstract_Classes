@@ -7,9 +7,9 @@ public class App {
 
     public static void main(String[] args) {
         
-        // Wir erstellen verschiedene konkrete Formen
-        Circle circle = new Circle(1.0 / Math.sqrt(Math.PI));
-        Rectangle rectangle = new Rectangle(6.0, 6.0);
+        // Wir erstellen die konkreten Formen
+        Circle circle = new Circle(Math.sqrt(12.11) / Math.sqrt(Math.PI));
+        Rectangle rectangle = new Rectangle(5.0, 6.0);
         Triangle triangle = new Triangle(3.0, 8.0);
 
         // Polymorphismus: Wir speichern alle unterschiedlichen Formen in einer Liste vom Typ "Shape".
