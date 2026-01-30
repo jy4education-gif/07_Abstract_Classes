@@ -8,10 +8,8 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
-    // Konkrete Implementierung der abstrakten Methode
-    @Override
-    public double area() {
-        // Formel: Pi * r^2
-        return Math.PI * radius * radius;
+    @Override                               
+    public double area() {                  // Konkrete Implementierung der abstrakten Methode
+        return Math.PI * radius * radius;  // Formel: Pi * r^2
     }
 }
