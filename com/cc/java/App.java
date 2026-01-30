@@ -8,7 +8,7 @@ public class App {
     public static void main(String[] args) {
         
         // Wir erstellen die konkreten Formen
-        Circle circle = new Circle(Math.sqrt(12.11) / Math.sqrt(Math.PI));
+        Circle circle = new Circle(Math.sqrt(12.17) / Math.sqrt(Math.PI));
         Rectangle rectangle = new Rectangle(5.0, 6.0);
         Triangle triangle = new Triangle(3.0, 8.0);
 

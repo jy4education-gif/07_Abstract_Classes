@@ -10,6 +10,6 @@ public class Circle extends Shape {
 
     @Override                               
     public double area() {                  // Konkrete Implementierung der abstrakten Methode
-        return Math.PI * radius * radius;  // Formel: Pi * r^2
+        return Math.PI * Math.pow(radius, 2);  // Formel: Pi * r^2
     }
 }
